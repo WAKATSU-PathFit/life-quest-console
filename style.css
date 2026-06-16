@@ -459,9 +459,10 @@ body::after {
 .hero-avatar {
   position: absolute;
   left: 50%;
-  bottom: 106px;
-  width: 66px;
-  height: 96px;
+  bottom: 104px;
+  width: 76px;
+  height: 104px;
+  filter: drop-shadow(0 0 12px rgba(82, 220, 255, 0.42));
   transform: translateX(-50%) scale(1.08);
 }
 
@@ -470,44 +471,142 @@ body::after {
   display: block;
 }
 
-.pixel-hero__head {
-  left: 15px;
+.pixel-hero__hair {
+  left: 14px;
   top: 0;
-  width: 26px;
-  height: 26px;
+  z-index: 4;
+  width: 48px;
+  height: 38px;
   background:
-    radial-gradient(circle at 36% 40%, var(--text) 0 2px, transparent 3px),
-    radial-gradient(circle at 66% 40%, var(--text) 0 2px, transparent 3px),
-    #101827;
-  border: 3px solid #02040a;
+    radial-gradient(circle at 16% 54%, #070a12 0 8px, transparent 9px),
+    radial-gradient(circle at 34% 30%, #070a12 0 11px, transparent 12px),
+    radial-gradient(circle at 58% 26%, #070a12 0 12px, transparent 13px),
+    radial-gradient(circle at 80% 48%, #070a12 0 9px, transparent 10px),
+    linear-gradient(180deg, #131826, #05070d);
+  border: 2px solid #02040a;
+  border-radius: 18px 18px 12px 12px;
   box-shadow:
-    -8px 4px 0 #02040a,
-    8px 4px 0 #02040a,
+    -4px 9px 0 -1px #05070d,
+    4px 9px 0 -1px #05070d;
+}
+
+.pixel-hero__head {
+  left: 19px;
+  top: 15px;
+  z-index: 5;
+  width: 38px;
+  height: 34px;
+  background:
+    radial-gradient(circle at 50% 78%, rgba(255, 172, 186, 0.7) 0 2px, transparent 3px),
+    linear-gradient(180deg, #f4d4b8, #d9a982);
+  border: 2px solid #02040a;
+  border-radius: 14px 14px 13px 13px;
+  box-shadow:
+    -13px 8px 0 -8px #f4d4b8,
+    13px 8px 0 -8px #f4d4b8,
     0 0 14px rgba(82, 220, 255, 0.32);
 }
 
-.pixel-hero__body {
-  left: 10px;
-  top: 30px;
-  width: 36px;
-  height: 44px;
+.pixel-hero__face {
+  left: 27px;
+  top: 27px;
+  z-index: 6;
+  width: 22px;
+  height: 12px;
   background:
-    linear-gradient(90deg, #02040a 0 18%, #173b66 18% 38%, #f4c95d 38% 62%, #173b66 62% 82%, #02040a 82%),
-    #10223d;
+    radial-gradient(circle at 26% 38%, #111827 0 3px, transparent 4px),
+    radial-gradient(circle at 74% 38%, #111827 0 3px, transparent 4px),
+    linear-gradient(90deg, transparent 0 42%, rgba(96, 46, 50, 0.7) 42% 58%, transparent 58%);
+  border-radius: 50%;
+}
+
+.pixel-hero__face::after {
+  position: absolute;
+  left: 8px;
+  bottom: -4px;
+  width: 7px;
+  height: 3px;
+  border-bottom: 2px solid rgba(88, 40, 42, 0.7);
+  border-radius: 0 0 8px 8px;
+  content: "";
+}
+
+.pixel-hero__cape {
+  left: 15px;
+  top: 45px;
+  z-index: 1;
+  width: 46px;
+  height: 42px;
+  background:
+    linear-gradient(135deg, rgba(183, 156, 255, 0.9), rgba(41, 73, 136, 0.95));
+  border: 2px solid #02040a;
+  clip-path: polygon(14% 0, 86% 0, 100% 92%, 50% 72%, 0 92%);
+  box-shadow: 0 0 12px rgba(183, 156, 255, 0.25);
+}
+
+.pixel-hero__body {
+  left: 22px;
+  top: 45px;
+  z-index: 4;
+  width: 32px;
+  height: 36px;
+  background:
+    linear-gradient(90deg, #07101c 0 18%, #174b75 18% 38%, #f4c95d 38% 62%, #174b75 62% 82%, #07101c 82%),
+    linear-gradient(180deg, #1c6f92, #10223d);
   border: 3px solid #02040a;
+  border-radius: 8px 8px 6px 6px;
   box-shadow:
-    -9px 20px 0 -4px #02040a,
-    9px 20px 0 -4px #02040a;
+    -13px 8px 0 -6px #174b75,
+    13px 8px 0 -6px #174b75,
+    inset 0 0 8px rgba(82, 220, 255, 0.18);
+}
+
+.pixel-hero__legs {
+  left: 23px;
+  top: 78px;
+  z-index: 3;
+  width: 30px;
+  height: 18px;
+  background:
+    linear-gradient(90deg, #02040a 0 28%, transparent 28% 72%, #02040a 72% 100%),
+    linear-gradient(90deg, #143050 0 42%, transparent 42% 58%, #143050 58% 100%);
+}
+
+.pixel-hero__legs::after {
+  position: absolute;
+  left: -3px;
+  bottom: -2px;
+  width: 36px;
+  height: 5px;
+  background:
+    linear-gradient(90deg, #02040a 0 38%, transparent 38% 62%, #02040a 62% 100%);
+  content: "";
 }
 
 .pixel-hero__blade {
-  right: -4px;
-  top: 26px;
+  right: 6px;
+  top: 48px;
+  z-index: 2;
   width: 5px;
   height: 42px;
-  background: linear-gradient(var(--cyan), var(--gold));
-  box-shadow: 0 0 10px rgba(82, 220, 255, 0.5);
-  transform: rotate(28deg);
+  background:
+    linear-gradient(var(--cyan), #f8fbff 42%, var(--gold));
+  border: 1px solid rgba(2, 4, 10, 0.72);
+  box-shadow: 0 0 12px rgba(82, 220, 255, 0.72);
+  transform: rotate(31deg);
+}
+
+.pixel-hero__spark {
+  right: 9px;
+  top: 34px;
+  z-index: 7;
+  width: 8px;
+  height: 8px;
+  background:
+    linear-gradient(90deg, transparent 35%, var(--gold) 35% 65%, transparent 65%),
+    linear-gradient(transparent 35%, var(--gold) 35% 65%, transparent 65%);
+  filter: drop-shadow(0 0 8px rgba(244, 201, 93, 0.8));
+  transform: rotate(45deg);
 }
 
 .hero-shadow {
