@@ -6,7 +6,8 @@
 
 - HTML
 - CSS
-- JavaScript
+
+JavaScriptは現時点では未使用です。
 
 ## 公開方法
 

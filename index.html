@@ -3,37 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>生活管理ステータス端末</title>
+  <title>Life Quest Console</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main class="app-shell" aria-label="生活管理RPGダッシュボード">
-    <!-- Adventurer profile -->
-    <section class="hero-card panel panel--mystic" aria-labelledby="player-name">
-      <div class="ambient-mark ambient-mark--moon" aria-hidden="true"></div>
-      <div class="profile-topline">
-        <span class="tiny-label">ADVENTURER FILE</span>
-        <span class="level-badge">Lv.24</span>
-      </div>
-      <div class="profile-main">
-        <div class="avatar-frame" aria-hidden="true">
-          <span class="avatar-core"></span>
+    <!-- Game home: Life Quest Console -->
+    <section id="home" class="home-console panel panel--mystic" aria-labelledby="player-name">
+      <div class="top-game-hud" aria-label="プレイヤーHUD">
+        <div class="hud-player">
+          <div class="hud-avatar" aria-hidden="true"></div>
+          <div>
+            <span class="hud-app-name">Life Quest Console</span>
+            <h1 id="player-name">若林 勝則</h1>
+            <span>Lv.24</span>
+          </div>
         </div>
+        <div class="hud-resource-row">
+          <div class="hud-resource hud-resource--hp"><span>HP</span><strong>64</strong></div>
+          <div class="hud-resource hud-resource--mp"><span>MP</span><strong>72</strong></div>
+          <div class="hud-resource hud-resource--st"><span>ST</span><strong>48</strong></div>
+          <div class="hud-resource hud-resource--cash"><span>Cash</span><strong>¥3,200</strong></div>
+          <div class="hud-resource hud-resource--clarity"><span>World Clarity</span><strong>28%</strong></div>
+        </div>
+      </div>
+
+      <div class="mission-banner">
         <div>
-          <h1 id="player-name">若林 勝則</h1>
-          <p class="character-type">洞察型プランナー</p>
-          <p class="sub-type">説明型セールスマンサー</p>
+          <span class="mission-title">NEXT MISSION</span>
+          <p class="mission-text">未整理タスクを1つ言語化する</p>
+          <span class="mission-reward">報酬：Logos EXP +10</span>
         </div>
+        <a class="mission-start" href="#quests">START</a>
       </div>
-      <div class="status-badges" aria-label="今日の状態">
-        <span class="status-badge status-badge--mp">MP高め</span>
-        <span class="status-badge status-badge--st">ST注意</span>
-        <span class="status-badge status-badge--cash">Cash少なめ</span>
+
+      <div class="hero-stage" aria-label="主人公ホーム">
+        <div class="hero-skyline" aria-hidden="true"></div>
+        <div class="hero-ring" aria-hidden="true"></div>
+        <div class="hero-aura" aria-hidden="true"></div>
+        <div class="hero-avatar pixel-hero" aria-hidden="true">
+          <span class="pixel-hero__head"></span>
+          <span class="pixel-hero__body"></span>
+          <span class="pixel-hero__blade"></span>
+        </div>
+        <div class="hero-shadow" aria-hidden="true"></div>
+
+        <nav class="hero-menu" aria-label="ホームメニュー">
+          <div class="hero-menu-grid">
+            <a class="game-menu-button" href="#status">
+              <span class="menu-glyph">ST</span>
+              <span class="menu-label">Status</span>
+              <span class="notification-badge">!</span>
+            </a>
+            <a class="game-menu-button" href="#focus">
+              <span class="menu-glyph">FQ</span>
+              <span class="menu-label">Focus</span>
+              <span class="notification-badge">2</span>
+            </a>
+            <a class="game-menu-button" href="#clarity">
+              <span class="menu-glyph">CL</span>
+              <span class="menu-label">Clarity</span>
+              <span class="notification-badge">!</span>
+            </a>
+            <a class="game-menu-button" href="#skills">
+              <span class="menu-glyph">SK</span>
+              <span class="menu-label">Skill</span>
+              <span class="notification-badge">NEW</span>
+            </a>
+            <a class="game-menu-button" href="#finance">
+              <span class="menu-glyph">¥</span>
+              <span class="menu-label">Finance</span>
+              <span class="notification-badge">!</span>
+            </a>
+            <a class="game-menu-button" href="#boss">
+              <span class="menu-glyph">BS</span>
+              <span class="menu-label">Boss</span>
+              <span class="notification-badge">高</span>
+            </a>
+            <a class="game-menu-button" href="#quests">
+              <span class="menu-glyph">Q</span>
+              <span class="menu-label">Quest</span>
+              <span class="notification-badge">6</span>
+            </a>
+            <a class="game-menu-button" href="#logs">
+              <span class="menu-glyph">LG</span>
+              <span class="menu-label">Log</span>
+              <span class="notification-badge">NEW</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="home-action-row" aria-label="メインアクション">
+        <a href="#focus">Focus Quest<span>集中して整える</span></a>
+        <a href="#quests">Daily Quest<span>日々を積み上げる</span></a>
+        <a href="#logs">Chaos Log<span>混沌を記録する</span></a>
+      </div>
+
+      <div class="mini-hud" aria-label="リソースミニHUD">
+        <span>HP <b>64/100</b></span>
+        <span>MP <b>72/100</b></span>
+        <span>ST <b>48/100</b></span>
+        <span>Cash <b>¥3,200</b></span>
+      </div>
+
+      <div class="resolution-upgrade" aria-labelledby="resolution-upgrade-title">
+        <div class="resolution-upgrade__head">
+          <div>
+            <span class="section-kicker">Resolution Upgrade</span>
+            <h2 id="resolution-upgrade-title">世界解像度進化</h2>
+          </div>
+          <span class="hud-alert">World Clarity 28%</span>
+        </div>
+        <div class="resolution-upgrade__summary">
+          <p>現在：<strong>Lv.3 冒険者ホーム起動</strong></p>
+          <p>次：<strong>Lv.4 透明HUD解放</strong></p>
+          <p>条件：言語化EXP 50 / Focus Quest 3回 / 日次ログ3回</p>
+        </div>
+        <div class="resolution-path" aria-label="解像度アップグレード段階">
+          <article class="resolution-node"><span>Lv.1</span><strong>Rough Pixel</strong></article>
+          <article class="resolution-node"><span>Lv.2</span><strong>Town Outline</strong></article>
+          <article class="resolution-node resolution-node-current"><span>Lv.3</span><strong>Hero Home</strong><em>現在</em></article>
+          <article class="resolution-node resolution-node-next"><span>Lv.4</span><strong>Clear HUD</strong><em>NEXT</em></article>
+          <article class="resolution-node resolution-node-locked"><span>Lv.5</span><strong>Cosmos Mode</strong><em>LOCKED</em></article>
+        </div>
       </div>
     </section>
 
     <!-- Resource gauges -->
-    <section class="panel panel--terminal" aria-labelledby="resources-title">
+    <section id="resources" class="panel panel--terminal" aria-labelledby="resources-title">
       <div class="section-heading">
         <span class="section-kicker">RESOURCE</span>
         <h2 id="resources-title">リソースゲージ</h2>
@@ -75,7 +173,7 @@
     </section>
 
     <!-- World clarity and Chaos to Cosmos flow -->
-    <section class="panel world-clarity" aria-labelledby="world-clarity-title">
+    <section id="clarity" class="panel world-clarity" aria-labelledby="world-clarity-title">
       <div class="section-heading">
         <span class="section-kicker">CHAOS TO COSMOS</span>
         <h2 id="world-clarity-title">World Clarity <span>世界解像度</span></h2>
@@ -100,7 +198,7 @@
           <strong><span>35</span>EXP</strong>
         </div>
       </div>
-      <p class="world-state">現在の世界状態：<span>霧の濃いドット世界</span></p>
+      <p class="world-state">現在の世界状態：<span>Lv.3 冒険者ホーム起動</span></p>
       <p class="clarity-message">言葉にするほど、世界の霧が晴れる。</p>
 
       <div class="chaos-cosmos-flow" aria-label="Chaos to Cosmos の流れ">
@@ -128,7 +226,7 @@
     </section>
 
     <!-- Base status -->
-    <section class="panel panel--stats" aria-labelledby="stats-title">
+    <section id="status" class="panel panel--stats" aria-labelledby="stats-title">
       <div class="section-heading">
         <span class="section-kicker">BASE STATUS</span>
         <h2 id="stats-title">基礎ステータス</h2>
@@ -151,7 +249,7 @@
     </section>
 
     <!-- Sales mode boost -->
-    <section class="panel panel--skill-boost" aria-labelledby="boost-title">
+    <section id="focus" class="panel panel--skill-boost" aria-labelledby="boost-title">
       <div class="section-heading">
         <span class="section-kicker">SKILL BURST</span>
         <h2 id="boost-title">接客モード発動</h2>
@@ -176,7 +274,7 @@
     </section>
 
     <!-- Learned skills -->
-    <section class="panel" aria-labelledby="skills-title">
+    <section id="skills" class="panel" aria-labelledby="skills-title">
       <div class="section-heading">
         <span class="section-kicker">LEARNED SKILLS</span>
         <h2 id="skills-title">獲得スキル</h2>
@@ -193,7 +291,7 @@
     </section>
 
     <!-- Finance console -->
-    <section class="panel panel--finance" aria-labelledby="finance-title">
+    <section id="finance" class="panel panel--finance" aria-labelledby="finance-title">
       <div class="section-heading">
         <span class="section-kicker">TREASURE CONSOLE</span>
         <h2 id="finance-title">財務ダッシュボード</h2>
@@ -221,7 +319,7 @@
     </section>
 
     <!-- Short-term debt alert -->
-    <section class="panel panel--danger" aria-labelledby="debt-title">
+    <section id="boss" class="panel panel--danger" aria-labelledby="debt-title">
       <div class="section-heading">
         <span class="section-kicker">BOSS ALERT</span>
         <h2 id="debt-title">短期負債モンスター</h2>
@@ -240,7 +338,7 @@
     </section>
 
     <!-- Logos EXP rewards -->
-    <section class="panel logos-exp" aria-labelledby="logos-exp-title">
+    <section id="logs" class="panel logos-exp" aria-labelledby="logos-exp-title">
       <div class="section-heading">
         <span class="section-kicker">LOGOS EXP</span>
         <h2 id="logos-exp-title">言語化EXP</h2>
@@ -264,35 +362,35 @@
       </div>
       <div class="evolution-current">
         <span>現在</span>
-        <strong>Lv.2 輪郭が見える</strong>
+        <strong>Lv.3 冒険者ホーム起動</strong>
       </div>
       <div class="resolution-steps" aria-label="冒険レベルによる世界解像度">
         <article class="resolution-step">
           <span>Lv.1</span>
-          <strong>霧の中の粗いドット世界</strong>
+          <strong>Rough Pixel</strong>
+        </article>
+        <article class="resolution-step">
+          <span>Lv.2</span>
+          <strong>Town Outline</strong>
         </article>
         <article class="resolution-step is-current">
-          <span>Lv.2</span>
-          <strong>輪郭が見える</strong>
-        </article>
-        <article class="resolution-step is-locked">
           <span>Lv.3</span>
-          <strong>冒険者端末が起動</strong>
+          <strong>Hero Home</strong>
         </article>
-        <article class="resolution-step is-locked">
+        <article class="resolution-step is-next">
           <span>Lv.4</span>
-          <strong>世界が広がる</strong>
+          <strong>Clear HUD</strong>
         </article>
         <article class="resolution-step is-locked">
           <span>Lv.5</span>
-          <strong>高解像度ワールド</strong>
+          <strong>Cosmos Mode</strong>
         </article>
       </div>
       <p class="evolution-condition">次の進化条件：<span>言語化EXP 50</span> / <span>Focus Quest 3回</span> / <span>日次ログ3回</span></p>
     </section>
 
     <!-- Daily quests -->
-    <section class="panel panel--quest" aria-labelledby="quest-title">
+    <section id="quests" class="panel panel--quest" aria-labelledby="quest-title">
       <div class="section-heading">
         <span class="section-kicker">DAILY QUEST</span>
         <h2 id="quest-title">今日のクエスト</h2>
@@ -314,11 +412,11 @@
 
   <!-- Fixed mobile tab navigation -->
   <nav class="bottom-nav" aria-label="下部ナビゲーション">
-    <a class="is-active" href="#"><span></span>ホーム</a>
-    <a href="#"><span></span>ステータス</a>
-    <a href="#"><span></span>スキル</a>
-    <a href="#"><span></span>財務</a>
-    <a href="#"><span></span>クエスト</a>
+    <a class="is-active" href="#home"><span></span>ホーム<small>Home</small></a>
+    <a href="#resources"><span></span>管理<small>Manage</small></a>
+    <a href="#quests"><span></span>クエスト<small>Quest</small></a>
+    <a href="#finance"><span></span>財務<small>Finance</small></a>
+    <a href="#logs"><span></span>設定<small>Settings</small></a>
   </nav>
 </body>
 </html>
