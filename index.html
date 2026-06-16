@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <main class="app-shell" aria-label="生活管理RPGダッシュボード">
+  <main class="app-shell app-main" aria-label="生活管理RPGダッシュボード">
+    <section class="app-screen screen-home is-active" id="screen-home" data-route="home" aria-label="ホーム画面">
     <!-- Game home: Life Quest Console -->
     <section id="home" class="home-console panel panel--mystic" aria-labelledby="player-name">
       <div class="top-game-hud" aria-label="プレイヤーHUD">
@@ -34,7 +35,7 @@
           <p class="mission-text">未整理タスクを1つ言語化する</p>
           <span class="mission-reward">報酬：Logos EXP +10</span>
         </div>
-        <a class="mission-start" href="#quests">START</a>
+        <a class="mission-start route-button" href="#quests" data-route-link="quests">START</a>
       </div>
 
       <div class="hero-stage" aria-label="主人公ホーム">
@@ -50,42 +51,42 @@
 
         <nav class="hero-menu" aria-label="ホームメニュー">
           <div class="hero-menu-grid">
-            <a class="game-menu-button" href="#status">
+            <a class="game-menu-button" href="#status" data-route-link="status">
               <span class="menu-glyph">ST</span>
               <span class="menu-label">Status</span>
               <span class="notification-badge">!</span>
             </a>
-            <a class="game-menu-button" href="#focus">
+            <a class="game-menu-button" href="#focus" data-route-link="focus">
               <span class="menu-glyph">FQ</span>
               <span class="menu-label">Focus</span>
               <span class="notification-badge">2</span>
             </a>
-            <a class="game-menu-button" href="#clarity">
+            <a class="game-menu-button" href="#clarity" data-route-link="clarity">
               <span class="menu-glyph">CL</span>
               <span class="menu-label">Clarity</span>
               <span class="notification-badge">!</span>
             </a>
-            <a class="game-menu-button" href="#skills">
+            <a class="game-menu-button" href="#skills" data-route-link="skills">
               <span class="menu-glyph">SK</span>
               <span class="menu-label">Skill</span>
               <span class="notification-badge">NEW</span>
             </a>
-            <a class="game-menu-button" href="#finance">
+            <a class="game-menu-button" href="#finance" data-route-link="finance">
               <span class="menu-glyph">¥</span>
               <span class="menu-label">Finance</span>
               <span class="notification-badge">!</span>
             </a>
-            <a class="game-menu-button" href="#boss">
+            <a class="game-menu-button" href="#boss" data-route-link="boss">
               <span class="menu-glyph">BS</span>
               <span class="menu-label">Boss</span>
               <span class="notification-badge">高</span>
             </a>
-            <a class="game-menu-button" href="#quests">
+            <a class="game-menu-button" href="#quests" data-route-link="quests">
               <span class="menu-glyph">Q</span>
               <span class="menu-label">Quest</span>
               <span class="notification-badge">6</span>
             </a>
-            <a class="game-menu-button" href="#logs">
+            <a class="game-menu-button" href="#logs" data-route-link="logs">
               <span class="menu-glyph">LG</span>
               <span class="menu-label">Log</span>
               <span class="notification-badge">NEW</span>
@@ -95,9 +96,9 @@
       </div>
 
       <div class="home-action-row" aria-label="メインアクション">
-        <a href="#focus">Focus Quest<span>集中して整える</span></a>
-        <a href="#quests">Daily Quest<span>日々を積み上げる</span></a>
-        <a href="#logs">Chaos Log<span>混沌を記録する</span></a>
+        <a href="#focus" data-route-link="focus">Focus Quest<span>集中して整える</span></a>
+        <a href="#quests" data-route-link="quests">Daily Quest<span>日々を積み上げる</span></a>
+        <a href="#logs" data-route-link="logs">Chaos Log<span>混沌を記録する</span></a>
       </div>
 
       <div class="mini-hud" aria-label="リソースミニHUD">
@@ -408,15 +409,282 @@
         <li><span class="fake-checkbox"></span>未整理タスクをクエスト化する</li>
       </ul>
     </section>
+    </section>
+
+    <section class="app-screen screen-status" id="screen-status" data-route="status">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">STATUS</span>
+        <h2 class="screen-title">Status Terminal / ステータス端末</h2>
+        <p class="screen-subtitle">身体、思考、言語化、接客時補正をまとめて確認する冒険者端末。</p>
+      </header>
+      <div class="screen-card">
+        <div class="stat-grid">
+          <div class="stat-item"><span>STR 体力</span><strong>48</strong></div>
+          <div class="stat-item stat-item--high"><span>LNG 言語力</span><strong>84</strong></div>
+          <div class="stat-item stat-item--max"><span>INS 洞察力</span><strong>96</strong></div>
+          <div class="stat-item"><span>LOG 論理力</span><strong>64</strong></div>
+          <div class="stat-item"><span>MEM 記憶力</span><strong>68</strong></div>
+          <div class="stat-item stat-item--high"><span>SPD 処理力</span><strong>80</strong></div>
+          <div class="stat-item"><span>MEN 精神力</span><strong>54</strong></div>
+          <div class="stat-item"><span>CHA 対人力</span><strong>58</strong></div>
+          <div class="stat-item"><span>ACT 行動力</span><strong>72</strong></div>
+          <div class="stat-item stat-item--high"><span>GRIT 執念力</span><strong>82</strong></div>
+        </div>
+        <div class="radar-decoration screen-radar" aria-hidden="true"><span></span></div>
+      </div>
+      <div class="screen-card screen-card--boost">
+        <h3>接客モード補正</h3>
+        <div class="boost-compare">
+          <div class="boost-box"><span>基礎CHA</span><strong>58</strong></div>
+          <div class="boost-arrow" aria-hidden="true"></div>
+          <div class="boost-box boost-box--active"><span>接客時 実効CHA</span><strong>79</strong></div>
+        </div>
+        <dl class="boost-list">
+          <div><dt>営業力</dt><dd>Lv.2</dd></div>
+          <div><dt>営業力バフ</dt><dd>+15</dd></div>
+          <div><dt>LNG補正</dt><dd>+4</dd></div>
+          <div><dt>INS補正</dt><dd>+2</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="app-screen screen-clarity" id="screen-clarity" data-route="clarity">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">CLARITY</span>
+        <h2 class="screen-title">World Clarity / 世界解像度</h2>
+        <p class="screen-subtitle">言葉にするほど、世界の霧が晴れる。</p>
+      </header>
+      <div class="screen-card">
+        <div class="clarity-meter" aria-label="世界解像度 28%">
+          <div class="clarity-meter__labels">
+            <span>Chaos <b>72%</b></span>
+            <strong><span class="clarity-value">28</span>%</strong>
+            <span>Cosmos <b>28%</b></span>
+          </div>
+          <div class="clarity-meter__bar"><span style="--value: 28%"></span></div>
+        </div>
+        <div class="clarity-grid">
+          <div><span>言語化EXP</span><strong>15 / 50</strong></div>
+          <div><span>次の解像度UPまで</span><strong>35EXP</strong></div>
+        </div>
+      </div>
+      <div class="chaos-cosmos-flow screen-card" aria-label="Chaos to Cosmos の流れ">
+        <article><span>Chaos</span><strong>未整理</strong><p>霧のような不安や疲れ。</p></article>
+        <article><span>Logos</span><strong>言語化</strong><p>名前をつけて輪郭を出す。</p></article>
+        <article><span>Quest</span><strong>行動化</strong><p>次の一歩へ変換する。</p></article>
+        <article><span>Cosmos</span><strong>秩序化</strong><p>生活の地図が鮮明になる。</p></article>
+      </div>
+      <div class="screen-card">
+        <h3>Resolution Upgrade</h3>
+        <div class="resolution-path">
+          <article class="resolution-node"><span>Lv.1</span><strong>Rough Pixel</strong></article>
+          <article class="resolution-node"><span>Lv.2</span><strong>Town Outline</strong></article>
+          <article class="resolution-node resolution-node-current"><span>Lv.3</span><strong>Hero Home</strong><em>現在</em></article>
+          <article class="resolution-node resolution-node-next"><span>Lv.4</span><strong>Clear HUD</strong><em>次の段階</em></article>
+          <article class="resolution-node resolution-node-locked"><span>Lv.5</span><strong>Cosmos Mode</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-screen screen-focus" id="screen-focus" data-route="focus">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">FOCUS</span>
+        <h2 class="screen-title">Focus Quest</h2>
+        <p class="screen-subtitle">未整理のカオスを25分の集中クエストへ変換する。</p>
+      </header>
+      <div class="screen-card focus-timer-card">
+        <span class="screen-badge">現在のクエスト：通常クエスト</span>
+        <strong class="focus-time">25:00</strong>
+        <div class="screen-grid">
+          <div><span>消費MP</span><strong>-10</strong></div>
+          <div><span>獲得EXP</span><strong>+10</strong></div>
+        </div>
+        <div class="preset-grid">
+          <button type="button">15分<br><span>軽作業</span></button>
+          <button type="button">25分<br><span>通常作業</span></button>
+          <button type="button">50分<br><span>深作業</span></button>
+          <button type="button">90分<br><span>ボス戦</span></button>
+        </div>
+        <div class="timer-actions">
+          <button type="button">開始</button>
+          <button type="button">一時停止</button>
+          <button type="button">リセット</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-screen screen-skills" id="screen-skills" data-route="skills">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">SKILLS</span>
+        <h2 class="screen-title">Skill Guild / スキルギルド</h2>
+        <p class="screen-subtitle">生活RPGで獲得済みのスキルと、接客時の補正を確認する。</p>
+      </header>
+      <div class="screen-card">
+        <div class="skill-chips">
+          <span class="skill-chip">生活安定 <b>Lv.1</b></span>
+          <span class="skill-chip">金銭安定 <b>Lv.1</b></span>
+          <span class="skill-chip skill-chip--active">営業力 <b>Lv.2</b></span>
+          <span class="skill-chip">自己管理 <b>Lv.1</b></span>
+          <span class="skill-chip">学習力 <b>Lv.2</b></span>
+          <span class="skill-chip">発信力 <b>Lv.1</b></span>
+          <span class="skill-chip skill-chip--locked">固定費管理 <b>Lv.0</b></span>
+        </div>
+        <p class="screen-note">営業力は基礎CHAに強めのバフをかけ、言語力と洞察力も接客時に補正する。</p>
+      </div>
+      <div class="screen-card screen-card--boost">
+        <h3>営業力 Lv.2</h3>
+        <div class="screen-grid">
+          <div><span>CHA</span><strong>+15</strong></div>
+          <div><span>LNG</span><strong>+4</strong></div>
+          <div><span>INS</span><strong>+2</strong></div>
+          <div><span>接客時 実効CHA</span><strong>79</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-screen screen-finance" id="screen-finance" data-route="finance">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">FINANCE</span>
+        <h2 class="screen-title">Alchemy Finance / 錬金術ラボ</h2>
+        <p class="screen-subtitle">生活コストと資産・負債の輪郭を分けて確認する管理コンソール。</p>
+      </header>
+      <div class="screen-card">
+        <div class="budget-summary">
+          <div><span>Wallet Cash</span><strong>¥3,200</strong></div>
+          <div><span>今月残り</span><strong>¥42,000</strong></div>
+        </div>
+        <div class="finance-grid">
+          <div><span>月次生活予算</span><strong>¥70,000</strong></div>
+          <div><span>日次消化</span><strong>¥2,333</strong></div>
+          <div><span>固定費</span><strong class="muted">未入力</strong></div>
+          <div><span>資産</span><strong class="muted">未入力</strong></div>
+          <div><span>長期負債</span><strong class="muted">未入力</strong></div>
+          <div><span>短期負債</span><strong class="danger-text">¥8,625</strong></div>
+          <div class="wide"><span>純資産</span><strong class="muted">未計算</strong></div>
+        </div>
+        <p class="console-note">食費・飲み物・タバコ・交通費は資産ではなく、月次生活予算から毎日消化される。</p>
+      </div>
+    </section>
+
+    <section class="app-screen screen-boss" id="screen-boss" data-route="boss">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">BOSS</span>
+        <h2 class="screen-title">Short Debt Boss / 短期負債ボス</h2>
+        <p class="screen-subtitle">怖さを増やすのではなく、倒せる課題として支払い条件を可視化する。</p>
+      </header>
+      <div class="screen-card panel--danger">
+        <div class="boss-core" aria-hidden="true"><span></span></div>
+        <dl class="alert-list">
+          <div><dt>支払いボス</dt><dd>通信費未払い</dd></div>
+          <div><dt>金額</dt><dd>¥8,625</dd></div>
+          <div><dt>期限</dt><dd>6/25</dd></div>
+          <div><dt>危険度</dt><dd class="danger-text">高</dd></div>
+          <div><dt>状態</dt><dd>未払い</dd></div>
+          <div><dt>撃破条件</dt><dd>支払い完了</dd></div>
+          <div><dt>ST影響</dt><dd>-5</dd></div>
+          <div><dt>MEN影響</dt><dd>-2</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="app-screen screen-quests" id="screen-quests" data-route="quests">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">QUESTS</span>
+        <h2 class="screen-title">Daily Quest / 今日のクエスト</h2>
+        <p class="screen-subtitle">冒険前の準備リスト。完了操作は次の実装で接続する。</p>
+      </header>
+      <div class="screen-card quest-board">
+        <ul class="quest-list">
+          <li><span class="fake-checkbox"></span>水を飲む <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>食事を1回入れる <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>10分散歩 <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>24時台に寝る <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>財布の中身を更新する <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>短期負債の期限を確認する <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>今日の感情を一言で記録する <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>不安を1つ言語化する <button type="button">完了</button></li>
+          <li><span class="fake-checkbox"></span>未整理タスクをクエスト化する <button type="button">完了</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="app-screen screen-logs" id="screen-logs" data-route="logs">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">LOGS</span>
+        <h2 class="screen-title">Chaos Log / 言語化ログ</h2>
+        <p class="screen-subtitle">未整理を言語化し、クエストへ変換するための記録端末。</p>
+      </header>
+      <div class="screen-card">
+        <label class="log-field">今日の一言ログ<textarea placeholder="今日は霧が濃いが、輪郭は見え始めている。"></textarea></label>
+        <label class="log-field">感情の命名<input type="text" value="焦りと圧迫感"></label>
+        <label class="log-field">不安の書き出し<textarea>支払い期限と作業量が重なってSTが下がっている。</textarea></label>
+        <label class="log-field">タスク分解メモ<textarea>財布確認 → 25分Focus Quest → 水を飲む</textarea></label>
+        <label class="log-field">Focus Quest後のメモ<textarea placeholder="集中後の変化を記録"></textarea></label>
+      </div>
+      <div class="screen-card">
+        <h3>言語化EXP獲得リスト</h3>
+        <ul class="exp-reward-list">
+          <li><span>未整理：なんとなく焦っている</span><strong>+5EXP</strong></li>
+          <li><span>言語化：支払い期限と作業量が重なってSTが下がっている</span><strong>+10EXP</strong></li>
+          <li><span>クエスト化：財布確認 → 25分Focus Quest → 水を飲む</span><strong>+10EXP</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <span id="manage" class="route-anchor" aria-hidden="true"></span>
+    <section class="app-screen screen-manage" id="screen-manage" data-route="manage">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">MANAGE</span>
+        <h2 class="screen-title">Manage Console / 管理</h2>
+        <p class="screen-subtitle">リソース、未入力、解放済み機能、次の確認項目をまとめる管理画面。</p>
+      </header>
+      <div class="screen-grid">
+        <div class="screen-card"><h3>リソース一覧</h3><p>HP 64 / MP 72 / ST 48 / Cash ¥3,200</p></div>
+        <div class="screen-card"><h3>今日の状態</h3><p>MP高め / ST注意 / Cash少なめ</p></div>
+        <div class="screen-card"><h3>未入力項目</h3><p>固定費 / 資産 / 長期負債</p></div>
+        <div class="screen-card"><h3>解放済み機能</h3><p>Hero Home / Focus Quest / Chaos Log</p></div>
+      </div>
+      <div class="screen-card"><h3>次に確認すべき項目</h3><p>短期負債の期限、財布残高、今日の感情ログ。</p></div>
+    </section>
+
+    <span id="settings" class="route-anchor" aria-hidden="true"></span>
+    <section class="app-screen screen-settings" id="screen-settings" data-route="settings">
+      <header class="screen-header">
+        <a href="#home" class="screen-back route-button" data-route-link="home">← Home</a>
+        <span class="section-kicker">SETTINGS</span>
+        <h2 class="screen-title">Settings / 設定</h2>
+        <p class="screen-subtitle">表示モードと未実装の連携状態を確認する静的設定画面。</p>
+      </header>
+      <div class="screen-card">
+        <div class="screen-list">
+          <div><span>表示モード</span><strong>Lv.3 Hero Home</strong></div>
+          <div><span>次の表示モード</span><strong>Lv.4 Clear HUD</strong></div>
+          <div><span>テーマ</span><strong>Cyber Nature Spiritual</strong></div>
+          <div><span>データ連携</span><strong>未接続</strong></div>
+          <div><span>LIFF</span><strong>未実装</strong></div>
+          <div><span>GAS</span><strong>未実装</strong></div>
+          <div><span>LINE Bot</span><strong>未実装</strong></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Fixed mobile tab navigation -->
   <nav class="bottom-nav" aria-label="下部ナビゲーション">
-    <a class="is-active" href="#home"><span></span>ホーム<small>Home</small></a>
-    <a href="#resources"><span></span>管理<small>Manage</small></a>
-    <a href="#quests"><span></span>クエスト<small>Quest</small></a>
-    <a href="#finance"><span></span>財務<small>Finance</small></a>
-    <a href="#logs"><span></span>設定<small>Settings</small></a>
+    <a class="is-active" href="#home" data-route-link="home"><span></span>ホーム<small>Home</small></a>
+    <a href="#manage" data-route-link="manage"><span></span>管理<small>Manage</small></a>
+    <a href="#quests" data-route-link="quests"><span></span>クエスト<small>Quest</small></a>
+    <a href="#finance" data-route-link="finance"><span></span>財務<small>Finance</small></a>
+    <a href="#settings" data-route-link="settings"><span></span>設定<small>Settings</small></a>
   </nav>
 </body>
 </html>
