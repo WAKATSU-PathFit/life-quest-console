@@ -21,11 +21,11 @@
           </div>
         </div>
         <div class="hud-resource-row">
-          <div class="hud-resource hud-resource--hp"><span>HP</span><strong>64</strong></div>
-          <div class="hud-resource hud-resource--mp"><span>MP</span><strong>72</strong></div>
-          <div class="hud-resource hud-resource--st"><span>ST</span><strong>48</strong></div>
-          <div class="hud-resource hud-resource--cash"><span>Cash</span><strong>¥3,200</strong></div>
-          <div class="hud-resource hud-resource--clarity"><span>World Clarity</span><strong>28%</strong></div>
+          <div class="hud-resource hud-resource--hp"><span>HP</span><strong>64</strong><i style="--value: 64%"></i></div>
+          <div class="hud-resource hud-resource--mp"><span>MP</span><strong>72</strong><i style="--value: 72%"></i></div>
+          <div class="hud-resource hud-resource--st"><span>ST</span><strong>48</strong><i style="--value: 48%"></i></div>
+          <div class="hud-resource hud-resource--cash"><span>Cash</span><strong>¥3,200</strong><i style="--value: 32%"></i></div>
+          <div class="hud-resource hud-resource--clarity"><span>World Clarity</span><strong>28%</strong><i style="--value: 28%"></i></div>
         </div>
       </div>
 
@@ -40,6 +40,9 @@
 
       <div class="hero-stage" aria-label="主人公ホーム">
         <img class="hero-background-image" src="assets/images/home-background.png" alt="" aria-hidden="true">
+        <div class="hero-atmosphere" aria-hidden="true"></div>
+        <div class="stage-status-chip stage-status-chip--clarity">WORLD CLARITY <b>28%</b></div>
+        <div class="stage-status-chip stage-status-chip--mode">Lv.3 HERO HOME</div>
         <div class="hero-skyline" aria-hidden="true"></div>
         <div class="hero-ring" aria-hidden="true"></div>
         <div class="hero-aura" aria-hidden="true"></div>
@@ -55,6 +58,10 @@
           <span class="pixel-hero__spark"></span>
         </div>
         <div class="hero-shadow" aria-hidden="true"></div>
+        <div class="hero-nameplate" aria-hidden="true">
+          <strong>若林 勝則</strong>
+          <span>洞察型プランナー</span>
+        </div>
 
         <nav class="hero-menu" aria-label="ホームメニュー">
           <div class="hero-menu-grid">
@@ -750,11 +757,11 @@
 
   <!-- Fixed mobile tab navigation -->
   <nav class="bottom-nav" aria-label="下部ナビゲーション">
-    <a class="is-active" href="#home" data-route-link="home"><span></span>ホーム<small>Home</small></a>
-    <a href="#manage" data-route-link="manage"><span></span>管理<small>Manage</small></a>
-    <a href="#quests" data-route-link="quests"><span></span>クエスト<small>Quest</small></a>
-    <a href="#finance" data-route-link="finance"><span></span>財務<small>Finance</small></a>
-    <a href="#settings" data-route-link="settings"><span></span>設定<small>Settings</small></a>
+    <a class="is-active" href="#home" data-route-link="home"><span>HM</span>ホーム<small>Home</small></a>
+    <a href="#manage" data-route-link="manage"><span>MG</span>管理<small>Manage</small></a>
+    <a href="#quests" data-route-link="quests"><span>QS</span>クエスト<small>Quest</small></a>
+    <a href="#finance" data-route-link="finance"><span>¥</span>財務<small>Finance</small></a>
+    <a href="#settings" data-route-link="settings"><span>ST</span>設定<small>Settings</small></a>
   </nav>
 </body>
 </html>
