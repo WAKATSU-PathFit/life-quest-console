@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生活管理ステータス端末</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell" aria-label="生活管理RPGダッシュボード">
+    <!-- Adventurer profile -->
+    <section class="hero-card panel panel--mystic" aria-labelledby="player-name">
+      <div class="ambient-mark ambient-mark--moon" aria-hidden="true"></div>
+      <div class="profile-topline">
+        <span class="tiny-label">ADVENTURER FILE</span>
+        <span class="level-badge">Lv.24</span>
+      </div>
+      <div class="profile-main">
+        <div class="avatar-frame" aria-hidden="true">
+          <span class="avatar-core"></span>
+        </div>
+        <div>
+          <h1 id="player-name">若林 勝則</h1>
+          <p class="character-type">洞察型プランナー</p>
+          <p class="sub-type">説明型セールスマンサー</p>
+        </div>
+      </div>
+      <div class="status-badges" aria-label="今日の状態">
+        <span class="status-badge status-badge--mp">MP高め</span>
+        <span class="status-badge status-badge--st">ST注意</span>
+        <span class="status-badge status-badge--cash">Cash少なめ</span>
+      </div>
+    </section>
+
+    <!-- Resource gauges -->
+    <section class="panel panel--terminal" aria-labelledby="resources-title">
+      <div class="section-heading">
+        <span class="section-kicker">RESOURCE</span>
+        <h2 id="resources-title">リソースゲージ</h2>
+      </div>
+      <div class="resource-list">
+        <article class="resource-row">
+          <div class="resource-meta">
+            <span class="resource-name">HP</span>
+            <span class="resource-value">64 / 100</span>
+          </div>
+          <div class="gauge gauge--hp" aria-label="HP 64 / 100"><span style="--value: 64%"></span></div>
+          <p>体力・肉体疲労・胃腸・眠気 / 体のカオスを整える</p>
+        </article>
+        <article class="resource-row">
+          <div class="resource-meta">
+            <span class="resource-name">MP</span>
+            <span class="resource-value">72 / 100</span>
+          </div>
+          <div class="gauge gauge--mp" aria-label="MP 72 / 100"><span style="--value: 72%"></span></div>
+          <p>思考力・集中力・判断力 / 思考を言葉に変える</p>
+        </article>
+        <article class="resource-row">
+          <div class="resource-meta">
+            <span class="resource-name">ST</span>
+            <span class="resource-value">48 / 100</span>
+          </div>
+          <div class="gauge gauge--st" aria-label="ST 48 / 100"><span style="--value: 48%"></span></div>
+          <p>ストレス耐久・感情の余裕 / 感情の霧を受け止める</p>
+        </article>
+        <article class="resource-row">
+          <div class="resource-meta">
+            <span class="resource-name">Cash</span>
+            <span class="resource-value">¥3,200</span>
+          </div>
+          <div class="gauge gauge--cash" aria-label="Cash 財布の中身 3200円"><span style="--value: 32%"></span></div>
+          <p>財布の中身 / お金の不安を見える化する</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- World clarity and Chaos to Cosmos flow -->
+    <section class="panel world-clarity" aria-labelledby="world-clarity-title">
+      <div class="section-heading">
+        <span class="section-kicker">CHAOS TO COSMOS</span>
+        <h2 id="world-clarity-title">World Clarity <span>世界解像度</span></h2>
+      </div>
+      <div class="clarity-meter" aria-label="世界解像度 28%">
+        <div class="clarity-meter__labels">
+          <span>Chaos <b>72%</b></span>
+          <strong><span class="clarity-value">28</span>%</strong>
+          <span>Cosmos <b>28%</b></span>
+        </div>
+        <div class="clarity-meter__bar">
+          <span style="--value: 28%"></span>
+        </div>
+      </div>
+      <div class="clarity-grid">
+        <div>
+          <span>言語化EXP</span>
+          <strong><span>15</span> / <span>50</span></strong>
+        </div>
+        <div>
+          <span>次の解像度UPまで</span>
+          <strong><span>35</span>EXP</strong>
+        </div>
+      </div>
+      <p class="world-state">現在の世界状態：<span>霧の濃いドット世界</span></p>
+      <p class="clarity-message">言葉にするほど、世界の霧が晴れる。</p>
+
+      <div class="chaos-cosmos-flow" aria-label="Chaos to Cosmos の流れ">
+        <article>
+          <span>Chaos</span>
+          <strong>未整理</strong>
+          <p>なんとなく不安、疲れ、未整理</p>
+        </article>
+        <article>
+          <span>Logos</span>
+          <strong>言語化</strong>
+          <p>言葉にして名前をつける</p>
+        </article>
+        <article>
+          <span>Quest</span>
+          <strong>行動化</strong>
+          <p>次の行動に変換する</p>
+        </article>
+        <article>
+          <span>Cosmos</span>
+          <strong>秩序化</strong>
+          <p>生活の地図が鮮明になる</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Base status -->
+    <section class="panel panel--stats" aria-labelledby="stats-title">
+      <div class="section-heading">
+        <span class="section-kicker">BASE STATUS</span>
+        <h2 id="stats-title">基礎ステータス</h2>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-item"><span>STR 体力</span><strong>48</strong></div>
+        <div class="stat-item stat-item--high"><span>LNG 言語力</span><strong>84</strong></div>
+        <div class="stat-item stat-item--max"><span>INS 洞察力</span><strong>96</strong></div>
+        <div class="stat-item"><span>LOG 論理力</span><strong>64</strong></div>
+        <div class="stat-item"><span>MEM 記憶力</span><strong>68</strong></div>
+        <div class="stat-item stat-item--high"><span>SPD 処理力</span><strong>80</strong></div>
+        <div class="stat-item"><span>MEN 精神力</span><strong>54</strong></div>
+        <div class="stat-item"><span>CHA 対人力</span><strong>58</strong></div>
+        <div class="stat-item"><span>ACT 行動力</span><strong>72</strong></div>
+        <div class="stat-item stat-item--high"><span>GRIT 執念力</span><strong>82</strong></div>
+      </div>
+      <div class="radar-decoration" aria-hidden="true">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- Sales mode boost -->
+    <section class="panel panel--skill-boost" aria-labelledby="boost-title">
+      <div class="section-heading">
+        <span class="section-kicker">SKILL BURST</span>
+        <h2 id="boost-title">接客モード発動</h2>
+      </div>
+      <div class="boost-compare">
+        <div class="boost-box">
+          <span>通常時</span>
+          <strong>基礎CHA 58</strong>
+        </div>
+        <div class="boost-arrow" aria-hidden="true"></div>
+        <div class="boost-box boost-box--active">
+          <span>発動時</span>
+          <strong>実効CHA 79</strong>
+        </div>
+      </div>
+      <dl class="boost-list">
+        <div><dt>営業力</dt><dd>Lv.2</dd></div>
+        <div><dt>営業力バフ</dt><dd>+15</dd></div>
+        <div><dt>LNG補正</dt><dd>+4</dd></div>
+        <div><dt>INS補正</dt><dd>+2</dd></div>
+      </dl>
+    </section>
+
+    <!-- Learned skills -->
+    <section class="panel" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <span class="section-kicker">LEARNED SKILLS</span>
+        <h2 id="skills-title">獲得スキル</h2>
+      </div>
+      <div class="skill-chips">
+        <span class="skill-chip">生活安定 <b>Lv.1</b></span>
+        <span class="skill-chip">金銭安定 <b>Lv.1</b></span>
+        <span class="skill-chip skill-chip--active">営業力 <b>Lv.2</b></span>
+        <span class="skill-chip">自己管理 <b>Lv.1</b></span>
+        <span class="skill-chip">学習力 <b>Lv.2</b></span>
+        <span class="skill-chip">発信力 <b>Lv.1</b></span>
+        <span class="skill-chip skill-chip--locked">固定費管理 <b>Lv.0</b></span>
+      </div>
+    </section>
+
+    <!-- Finance console -->
+    <section class="panel panel--finance" aria-labelledby="finance-title">
+      <div class="section-heading">
+        <span class="section-kicker">TREASURE CONSOLE</span>
+        <h2 id="finance-title">財務ダッシュボード</h2>
+      </div>
+      <div class="budget-summary">
+        <div>
+          <span>Wallet Cash</span>
+          <strong>¥3,200</strong>
+        </div>
+        <div>
+          <span>今月残り</span>
+          <strong>¥42,000</strong>
+        </div>
+      </div>
+      <div class="finance-grid">
+        <div><span>月次生活予算</span><strong>¥70,000</strong></div>
+        <div><span>日次消化</span><strong>¥2,333</strong></div>
+        <div><span>固定費</span><strong class="muted">未入力</strong></div>
+        <div><span>資産</span><strong class="muted">未入力</strong></div>
+        <div><span>長期負債</span><strong class="muted">未入力</strong></div>
+        <div><span>短期負債</span><strong class="danger-text">¥8,625</strong></div>
+        <div class="wide"><span>純資産</span><strong class="muted">未計算</strong></div>
+      </div>
+      <p class="console-note">食費・飲み物・タバコ・交通費は資産ではなく、月次生活予算から毎日消化される生活コストとして扱う。</p>
+    </section>
+
+    <!-- Short-term debt alert -->
+    <section class="panel panel--danger" aria-labelledby="debt-title">
+      <div class="section-heading">
+        <span class="section-kicker">BOSS ALERT</span>
+        <h2 id="debt-title">短期負債モンスター</h2>
+      </div>
+      <div class="boss-core" aria-hidden="true">
+        <span></span>
+      </div>
+      <dl class="alert-list">
+        <div><dt>名称</dt><dd>通信費未払い</dd></div>
+        <div><dt>金額</dt><dd>¥8,625</dd></div>
+        <div><dt>期限</dt><dd>6/25</dd></div>
+        <div><dt>危険度</dt><dd class="danger-text">高</dd></div>
+        <div><dt>状態</dt><dd>未払い</dd></div>
+        <div><dt>撃破条件</dt><dd>支払い完了</dd></div>
+      </dl>
+    </section>
+
+    <!-- Logos EXP rewards -->
+    <section class="panel logos-exp" aria-labelledby="logos-exp-title">
+      <div class="section-heading">
+        <span class="section-kicker">LOGOS EXP</span>
+        <h2 id="logos-exp-title">言語化EXP</h2>
+      </div>
+      <p class="exp-lead">未整理を言葉に変え、行動に変え、コスモスへ近づける。</p>
+      <ul class="exp-reward-list">
+        <li><span>体調を一言で記録</span><strong>+5EXP</strong></li>
+        <li><span>感情に名前をつける</span><strong>+5EXP</strong></li>
+        <li><span>不安を1つ書き出す</span><strong>+10EXP</strong></li>
+        <li><span>タスクを3つに分解</span><strong>+10EXP</strong></li>
+        <li><span>短期負債を登録</span><strong>+15EXP</strong></li>
+        <li><span>1日の振り返り</span><strong>+15EXP</strong></li>
+      </ul>
+    </section>
+
+    <!-- Resolution evolution -->
+    <section class="panel resolution-evolution" aria-labelledby="resolution-title">
+      <div class="section-heading">
+        <span class="section-kicker">RESOLUTION EVOLUTION</span>
+        <h2 id="resolution-title">解像度進化システム</h2>
+      </div>
+      <div class="evolution-current">
+        <span>現在</span>
+        <strong>Lv.2 輪郭が見える</strong>
+      </div>
+      <div class="resolution-steps" aria-label="冒険レベルによる世界解像度">
+        <article class="resolution-step">
+          <span>Lv.1</span>
+          <strong>霧の中の粗いドット世界</strong>
+        </article>
+        <article class="resolution-step is-current">
+          <span>Lv.2</span>
+          <strong>輪郭が見える</strong>
+        </article>
+        <article class="resolution-step is-locked">
+          <span>Lv.3</span>
+          <strong>冒険者端末が起動</strong>
+        </article>
+        <article class="resolution-step is-locked">
+          <span>Lv.4</span>
+          <strong>世界が広がる</strong>
+        </article>
+        <article class="resolution-step is-locked">
+          <span>Lv.5</span>
+          <strong>高解像度ワールド</strong>
+        </article>
+      </div>
+      <p class="evolution-condition">次の進化条件：<span>言語化EXP 50</span> / <span>Focus Quest 3回</span> / <span>日次ログ3回</span></p>
+    </section>
+
+    <!-- Daily quests -->
+    <section class="panel panel--quest" aria-labelledby="quest-title">
+      <div class="section-heading">
+        <span class="section-kicker">DAILY QUEST</span>
+        <h2 id="quest-title">今日のクエスト</h2>
+      </div>
+      <p class="quest-note">言語化されたカオスを、集中クエストに変換する。Quest Clearで世界解像度EXPを獲得。</p>
+      <ul class="quest-list">
+        <li><span class="fake-checkbox"></span>水を飲む</li>
+        <li><span class="fake-checkbox"></span>食事を1回入れる</li>
+        <li><span class="fake-checkbox"></span>10分散歩</li>
+        <li><span class="fake-checkbox"></span>24時台に寝る</li>
+        <li><span class="fake-checkbox"></span>財布の中身を更新する</li>
+        <li><span class="fake-checkbox"></span>短期負債の期限を確認する</li>
+        <li><span class="fake-checkbox"></span>今日の感情を一言で記録する</li>
+        <li><span class="fake-checkbox"></span>不安を1つ言語化する</li>
+        <li><span class="fake-checkbox"></span>未整理タスクをクエスト化する</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Fixed mobile tab navigation -->
+  <nav class="bottom-nav" aria-label="下部ナビゲーション">
+    <a class="is-active" href="#"><span></span>ホーム</a>
+    <a href="#"><span></span>ステータス</a>
+    <a href="#"><span></span>スキル</a>
+    <a href="#"><span></span>財務</a>
+    <a href="#"><span></span>クエスト</a>
+  </nav>
+</body>
+</html>
