@@ -15,7 +15,7 @@
   --warning: #ff9f45;
   --radius-panel: 10px;
   --shadow-glow: 0 0 22px rgba(82, 220, 255, 0.16);
-  --nav-height: 76px;
+  --nav-height: 84px;
 }
 
 * {
@@ -67,7 +67,7 @@ body::after {
   z-index: 1;
   width: min(100%, 430px);
   margin: 0 auto;
-  padding: 16px 14px calc(var(--nav-height) + 22px);
+  padding: 8px 8px calc(var(--nav-height) + 10px);
 }
 
 .panel {
@@ -121,17 +121,28 @@ body::after {
 }
 
 .home-console {
-  padding: 8px;
+  padding: 6px;
   background:
     radial-gradient(circle at 50% 28%, rgba(27, 132, 255, 0.3), transparent 24%),
     radial-gradient(circle at 50% 56%, rgba(83, 230, 165, 0.18), transparent 28%),
     linear-gradient(180deg, rgba(6, 20, 48, 0.96), rgba(4, 8, 19, 0.98) 56%, rgba(13, 23, 42, 0.94)),
     var(--panel);
-  border-color: rgba(118, 228, 255, 0.48);
+  border-color: rgba(118, 228, 255, 0.62);
+  border-radius: 8px;
   box-shadow:
     0 0 0 1px rgba(244, 201, 93, 0.2),
     0 0 32px rgba(82, 220, 255, 0.18),
     inset 0 0 28px rgba(82, 220, 255, 0.08);
+}
+
+.home-console::before {
+  position: absolute;
+  inset: 4px;
+  z-index: 0;
+  pointer-events: none;
+  border: 1px solid rgba(244, 201, 93, 0.26);
+  border-radius: 6px;
+  content: "";
 }
 
 .home-console::after {
@@ -154,13 +165,14 @@ body::after {
 
 .top-game-hud {
   display: grid;
-  grid-template-columns: 1.15fr 2fr;
-  gap: 6px;
-  padding: 6px;
+  grid-template-columns: 1.22fr 2fr;
+  gap: 4px;
+  padding: 5px;
   background:
     linear-gradient(180deg, rgba(14, 27, 53, 0.86), rgba(4, 8, 18, 0.82)),
     rgba(5, 7, 18, 0.72);
-  border: 1px solid rgba(244, 201, 93, 0.42);
+  border: 1px solid rgba(244, 201, 93, 0.58);
+  border-radius: 6px;
   box-shadow:
     inset 0 0 20px rgba(82, 220, 255, 0.1),
     0 0 18px rgba(82, 220, 255, 0.22);
@@ -176,8 +188,10 @@ body::after {
 }
 
 .hud-player {
-  gap: 9px;
+  gap: 8px;
   min-width: 0;
+  padding-right: 4px;
+  border-right: 1px solid rgba(237, 246, 255, 0.18);
 }
 
 .hud-avatar {
@@ -195,7 +209,7 @@ body::after {
 
 .hud-player h1 {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0;
 }
 
@@ -208,6 +222,7 @@ body::after {
 }
 
 .hud-player .hud-app-name {
+  display: none;
   color: var(--cyan);
   font-size: 9px;
   font-weight: 900;
@@ -223,8 +238,8 @@ body::after {
 
 .hud-resource {
   position: relative;
-  min-height: 48px;
-  padding: 5px 4px 8px;
+  min-height: 46px;
+  padding: 5px 3px 8px;
   text-align: center;
   background:
     linear-gradient(180deg, rgba(16, 35, 67, 0.9), rgba(5, 10, 24, 0.88));
@@ -247,7 +262,7 @@ body::after {
   display: block;
   min-height: 14px;
   color: var(--text-muted);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
 }
 
@@ -274,7 +289,8 @@ body::after {
   justify-content: space-between;
   gap: 10px;
   margin-top: 8px;
-  padding: 9px 10px;
+  min-height: 64px;
+  padding: 9px 10px 9px 54px;
   background:
     linear-gradient(90deg, rgba(82, 220, 255, 0.12), rgba(244, 201, 93, 0.06)),
     rgba(5, 7, 18, 0.58);
@@ -284,9 +300,34 @@ body::after {
     0 0 16px rgba(82, 220, 255, 0.16);
 }
 
+.mission-banner::before {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(82, 220, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(82, 220, 255, 0.28);
+  transform: translateY(-50%);
+  content: "";
+}
+
+.mission-banner::after {
+  position: absolute;
+  left: 26px;
+  top: 50%;
+  width: 12px;
+  height: 2px;
+  background: rgba(82, 220, 255, 0.9);
+  box-shadow: 0 -5px 0 rgba(82, 220, 255, 0.9), 0 5px 0 rgba(82, 220, 255, 0.9);
+  transform: translateY(-50%);
+  content: "";
+}
+
 .mission-title {
   color: var(--cyan);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -318,17 +359,29 @@ body::after {
 
 .hero-stage {
   position: relative;
-  min-height: 440px;
+  min-height: 434px;
   margin-top: 8px;
   padding: 12px 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 62%, rgba(82, 220, 255, 0.36), transparent 20%),
-    radial-gradient(circle at 50% 27%, rgba(255, 255, 255, 0.28), transparent 8%),
-    radial-gradient(circle at 50% 22%, rgba(51, 132, 255, 0.44), transparent 32%),
-    linear-gradient(180deg, rgba(7, 32, 77, 0.88), rgba(5, 28, 49, 0.66) 48%, rgba(7, 18, 18, 0.88));
+    radial-gradient(circle at 50% 61%, rgba(82, 220, 255, 0.42), transparent 21%),
+    radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.34), transparent 7%),
+    radial-gradient(circle at 50% 22%, rgba(51, 132, 255, 0.58), transparent 34%),
+    linear-gradient(180deg, rgba(7, 34, 86, 0.95), rgba(4, 27, 55, 0.76) 45%, rgba(5, 21, 22, 0.9));
   border: 1px solid rgba(118, 228, 255, 0.35);
   box-shadow: inset 0 0 34px rgba(82, 220, 255, 0.12);
+}
+
+.hero-stage::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1.5px),
+    linear-gradient(90deg, transparent 0 8%, rgba(82, 220, 255, 0.28) 8% 8.8%, transparent 8.8% 15%, rgba(183, 156, 255, 0.22) 15% 15.8%, transparent 15.8% 84%, rgba(82, 220, 255, 0.28) 84% 84.8%, transparent 84.8% 92%, rgba(244, 201, 93, 0.2) 92% 92.8%, transparent 92.8%);
+  background-size: 94px 78px, auto;
+  opacity: 0.78;
+  content: "";
 }
 
 .hero-skyline {
@@ -369,13 +422,27 @@ body::after {
 .hero-ring {
   position: absolute;
   left: 50%;
-  bottom: 66px;
-  width: 188px;
-  height: 60px;
+  bottom: 67px;
+  width: 200px;
+  height: 64px;
   border: 2px solid rgba(82, 220, 255, 0.92);
   border-radius: 50%;
   box-shadow: 0 0 26px rgba(82, 220, 255, 0.32), inset 0 0 18px rgba(82, 220, 255, 0.18);
   transform: translateX(-50%);
+}
+
+.hero-ring::before,
+.hero-ring::after {
+  position: absolute;
+  inset: 8px 18px;
+  border: 1px solid rgba(82, 220, 255, 0.5);
+  border-radius: 50%;
+  content: "";
+}
+
+.hero-ring::after {
+  inset: 17px 40px;
+  opacity: 0.7;
 }
 
 .hero-aura {
@@ -392,7 +459,7 @@ body::after {
 .hero-avatar {
   position: absolute;
   left: 50%;
-  bottom: 104px;
+  bottom: 106px;
   width: 66px;
   height: 96px;
   transform: translateX(-50%) scale(1.08);
@@ -479,7 +546,8 @@ body::after {
   text-decoration: none;
   background:
     linear-gradient(180deg, rgba(17, 31, 56, 0.82), rgba(5, 7, 18, 0.78));
-  border: 1px solid rgba(237, 246, 255, 0.34);
+  border: 1px solid rgba(237, 246, 255, 0.44);
+  border-radius: 7px;
   box-shadow:
     inset 0 0 14px rgba(82, 220, 255, 0.12),
     0 0 16px rgba(0, 0, 0, 0.28);
@@ -487,7 +555,7 @@ body::after {
 }
 
 .game-menu-button:nth-child(2n) {
-  border-color: rgba(244, 201, 93, 0.34);
+  border-color: rgba(244, 201, 93, 0.52);
 }
 
 .menu-glyph {
@@ -508,6 +576,15 @@ body::after {
   min-width: 0;
   font-size: 13px;
   font-weight: 900;
+}
+
+.menu-label small {
+  display: block;
+  margin-top: 2px;
+  color: rgba(237, 246, 255, 0.82);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .notification-badge {
@@ -542,17 +619,31 @@ body::after {
 .home-action-row a {
   display: grid;
   place-items: center;
-  min-height: 74px;
+  min-height: 80px;
   padding: 9px 6px;
   color: var(--text);
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
   text-decoration: none;
   background:
     linear-gradient(180deg, rgba(16, 34, 58, 0.86), rgba(5, 7, 18, 0.76));
   border: 1px solid rgba(82, 220, 255, 0.64);
   box-shadow: 0 0 18px rgba(82, 220, 255, 0.22), inset 0 0 18px rgba(82, 220, 255, 0.08);
+}
+
+.home-action-row i {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 3px;
+  place-items: center;
+  color: currentColor;
+  font-size: 10px;
+  font-style: normal;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
 }
 
 .home-action-row a:last-child {
@@ -572,7 +663,7 @@ body::after {
   justify-content: space-between;
   gap: 6px;
   margin-top: 9px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   background:
     linear-gradient(180deg, rgba(15, 30, 54, 0.9), rgba(5, 7, 18, 0.88));
   border: 1px solid rgba(118, 228, 255, 0.38);
@@ -580,10 +671,28 @@ body::after {
 }
 
 .mini-hud span {
+  position: relative;
+  flex: 1;
+  padding-bottom: 7px;
   color: var(--text-muted);
   font-size: 11px;
   font-weight: 800;
 }
+
+.mini-hud span::after {
+  position: absolute;
+  right: 8px;
+  bottom: 0;
+  left: 18px;
+  height: 4px;
+  background: var(--cyan);
+  box-shadow: 0 0 9px rgba(82, 220, 255, 0.45);
+  content: "";
+}
+
+.mini-hud span:first-child::after { background: var(--emerald); }
+.mini-hud span:nth-child(3)::after { background: var(--warning); }
+.mini-hud span:last-child::after { background: var(--gold); }
 
 .mini-hud b {
   color: var(--text);
@@ -621,7 +730,7 @@ body::after {
 }
 
 .resolution-upgrade__summary {
-  display: grid;
+  display: none;
   gap: 3px;
   margin-bottom: 9px;
 }
@@ -649,7 +758,8 @@ body::after {
   padding: 8px 5px;
   text-align: center;
   background:
-    linear-gradient(90deg, rgba(237, 246, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(11, 19, 34, 0.38)),
+    linear-gradient(90deg, rgba(237, 246, 255, 0.08) 1px, transparent 1px),
     rgba(237, 246, 255, 0.08);
   background-size: 8px 8px;
   border: 1px solid rgba(237, 246, 255, 0.16);
@@ -711,14 +821,15 @@ body::after {
   gap: 7px;
   margin-top: 10px;
   padding: 8px;
-  background: rgba(239, 244, 247, 0.92);
+  background:
+    linear-gradient(180deg, rgba(245, 249, 252, 0.96), rgba(225, 233, 240, 0.94));
   border: 1px solid rgba(237, 246, 255, 0.72);
   box-shadow: inset 0 0 18px rgba(5, 7, 18, 0.12);
 }
 
 .home-detail-card {
   display: grid;
-  min-height: 112px;
+  min-height: 118px;
   place-items: center;
   padding: 8px 4px;
   color: #26303a;
@@ -727,7 +838,7 @@ body::after {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(232, 238, 243, 0.94));
   border: 1px solid rgba(60, 72, 84, 0.22);
-  border-radius: 6px;
+  border-radius: 7px;
   box-shadow: 0 0 0 1px rgba(82, 220, 255, 0.08), 0 2px 8px rgba(5, 7, 18, 0.12);
 }
 
@@ -744,13 +855,14 @@ body::after {
 
 .detail-glyph {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   color: #0d1724;
   font-size: 11px;
   font-weight: 900;
-  background: rgba(82, 220, 255, 0.18);
+  background:
+    radial-gradient(circle, rgba(82, 220, 255, 0.38), rgba(82, 220, 255, 0.12));
   border: 1px solid rgba(13, 23, 36, 0.24);
   border-radius: 50%;
 }
@@ -1837,9 +1949,10 @@ body::after {
   width: min(100%, 430px);
   min-height: var(--nav-height);
   margin: 0 auto;
-  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
-  background: rgba(8, 12, 26, 0.96);
-  border-top: 1px solid rgba(118, 228, 255, 0.28);
+  padding: 7px 8px calc(9px + env(safe-area-inset-bottom));
+  background:
+    linear-gradient(180deg, rgba(10, 22, 38, 0.96), rgba(3, 8, 18, 0.98));
+  border-top: 1px solid rgba(118, 228, 255, 0.42);
   box-shadow: 0 -12px 28px rgba(0, 0, 0, 0.38);
   backdrop-filter: blur(14px);
 }
@@ -1848,7 +1961,7 @@ body::after {
   display: grid;
   place-items: center;
   gap: 2px;
-  min-height: 58px;
+  min-height: 64px;
   color: var(--text-muted);
   font-size: 10px;
   font-weight: 800;
@@ -1872,9 +1985,11 @@ body::after {
 }
 
 .bottom-nav .is-active {
-  color: var(--gold);
-  background: rgba(244, 201, 93, 0.08);
-  border: 1px solid rgba(244, 201, 93, 0.28);
+  color: var(--cyan);
+  background: rgba(82, 220, 255, 0.13);
+  border: 1px solid rgba(82, 220, 255, 0.62);
+  border-radius: 8px;
+  box-shadow: 0 0 16px rgba(82, 220, 255, 0.32), inset 0 0 14px rgba(82, 220, 255, 0.08);
 }
 
 @media (max-width: 360px) {
